@@ -516,7 +516,7 @@ def Run_Learning(mainpath, taskname, stagename):
 def Start_Run(mainpath, taskname, stagename, maxline_count, lst_step, lst_stname, lst_parameter, lst_weekday, lst_hour, begin_day, end_day, demand_start, demand_end, max_epi, df_orders_Wait, df_products, df_orderdata, df_linedata, df_molddata):
     ret_file = os.path.join(os.path.join(os.path.join(mainpath, taskname), stagename), 'ret.txt')
     if os.path.isfile(ret_file): os.remove(ret_file)
-    stage_file = os.path.join(os.path.join(os.path.join(mainpath, taskname), stagename), '\StageRecord.xlsx')
+    stage_file = os.path.join(os.path.join(os.path.join(mainpath, taskname), stagename), 'StageRecord.xlsx')
     if os.path.isfile(stage_file): os.remove(stage_file)
     json_data, ret = Opt_func.OpenJsonFile(mainpath, os.path.join(taskname, stagename), 'StageParameter.json', '')
 
