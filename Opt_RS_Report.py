@@ -810,10 +810,9 @@ def Output_Report(mainpath, taskname, output_file, ordercsv_file, data_file, df_
     lst_title = ['區塊別', 'Production', '', '', '', 'Tunning-Production', '', '', '', 'Tunning & Bootup', '', 'Shutdown', '', '', 'No Bootup', '', 'All Types', '']
     lst_merge = [0, 3, 0, 0, 0, 3, 0, 0, 0, 1, 0, 2, 0, 0, 1, 0, 1, 0]
     for i in range(len(lst_title)):
-        worksheet.cell(row=line_count + 2, column=i + 1).value = lst_title[i]
+        if lst_title[i] != '': worksheet.cell(row=line_count + 2, column=i + 1).value = lst_title[i]
         worksheet.cell(row=line_count + 2, column=i + 1).alignment = Alignment(horizontal='center', vertical='center')
-        if lst_merge[i] > 0: worksheet.merge_cells(start_row=line_count + 2, start_column=i + 1, end_row=line_count + 2,
-                                                   end_column=i + 1 + lst_merge[i])
+        if lst_merge[i] > 0: worksheet.merge_cells(start_row=line_count + 2, start_column=i + 1, end_row=line_count + 2, end_column=i + 1 + lst_merge[i])
         thecell = worksheet[chr(65 + i) + str(line_count + 2)]
         thecell.border = Border(top=thin, left=thin, right=thin, bottom=thin)
     lst_title = ['產線別', '區塊數', '總時數', '生產量', '廢料量', '區塊數', '總時數', '生產量', '廢料量', '區塊數', '總時數', '區塊數', '總時數', '廢料量',
