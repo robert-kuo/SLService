@@ -58,11 +58,11 @@ def save_stagerecord(sfile, max_epi):
             for k in range(10 if i == 0 else 1):
                 TG_name = ('TR' if i == 0 else 'TG') + (str(k + 1) if i == 0 else '')
                 for l_no in range(1, 100):
-                    # stage_path = '\\PSR_' + TG_name + 'L' + str(l_no)
-                    Stage_file = dirname + '\\history_learn_' + TG_name + '.txt'
+                    # stage_path = 'PSR_' + TG_name + 'L' + str(l_no)
+                    Stage_file = os.path.join(dirname, 'history_learn_' + TG_name + '.txt')
                     Stange_name = 'Trial' + str(k + 1) if i == 0 else 'Target Stage'
                     if os.path.isfile(Stage_file):
-                        f = open(dirname + '\\StagePara_' + TG_name + '.json', 'r')
+                        f = open(os.path.join(dirname, 'StagePara_' + TG_name + '.json'), 'r')
                         jlog_data = json.load(f)
                         f.close()
                         if i == 0:
