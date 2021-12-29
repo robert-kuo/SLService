@@ -104,8 +104,8 @@ def GetTuneStep(index, block_id, lst_block, df_molds, step_id, lst_bid=None):
 
 def SP_Report(mainpath, taskname, lst_block, df_products, df_orders, df_molds, df_linedata):
     fn = open('sp_report.txt', 'w')
-    if os.path.isfile(mainpath + '\\' + taskname + '\\Dataset\\lines.csv'):
-        df_lines = pd.read_csv(mainpath + '\\' + taskname + '\\Dataset\\lines.csv')
+    if os.path.isfile(os.path.join(os.path.join(os.path.join(mainpath, taskname), 'Dataset'), 'lines.csv')):
+        df_lines = pd.read_csv(os.path.join(os.path.join(os.path.join(mainpath, taskname), 'Dataset'), 'lines.csv'))
         df_lines['Line Begin'] = df_lines['Line Begin'].astype('datetime64[ns]')
         df_lines.fillna('', inplace=True)
     else:
@@ -850,15 +850,6 @@ def Output_Report(mainpath, taskname, output_file, ordercsv_file, data_file, df_
 
     # 實施區段圖
     # n_day = 0
-
-    # test IMP Sector
-    arr = np.array(lst_block)
-    np.save('d:\\opt_Web\\darray', arr)
-    print(lst_weekday)
-    print(max_linearray)
-    print(begin_day, end_day, maxline_count)
-    df_lines.to_csv('d:\\opt_Web\\ldata.csv', index=False)
-
     df_sector, df_LRation, lst_PHData = ImpSector_Sheet(lst_block, lst_weekday, max_linearray, begin_day, end_day, maxline_count, df_lines)
 
     workbook = writer.book
