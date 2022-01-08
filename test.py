@@ -3,7 +3,7 @@ import warnings
 
 warnings.filterwarnings('ignore')
 #Opt_SL_Run.Run_Learning('d:\\opt_web', 'TaskName1', 'StageLearning(4)')
-Opt_SL_Run.Run_Learning('/aidata/DIPS', 'Task1', 'StageLearning(2)')
+Opt_SL_Run.Run_Learning('/aidata/DIPS', 'Task1', 'StageLearning(3)')
 
 
 # ===  Test IMP Sector  ===
